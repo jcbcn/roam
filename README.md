@@ -1,12 +1,20 @@
 # roam
 
+## Ideas
+
+- Daily notes
+- Templates e.g Morning pages
+- Tags
+- Linked references
+- Unlinked references
+
 ## Architecture
 
-- Core
+- roam-core
     - Disk I/O operations
     - Parsing CommonMark
     - Search
     - Linking
     - Graph
-- Frontend
+- roam-frontend
     - Render using ggez
