@@ -10,11 +10,11 @@
 
 ## Architecture
 
-- roam-core
+- bark-core
     - Disk I/O operations
     - Parsing CommonMark
     - Search
     - Linking
     - Graph
-- roam-frontend
+- bark-frontend
     - Render using ggez
