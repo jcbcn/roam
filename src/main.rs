@@ -1,3 +1,5 @@
+use bark_frontend::Main;
+
 fn main() {
-    println!("Hello, world!");
+    Main();
 }
