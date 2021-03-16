@@ -1,5 +1,6 @@
-use bark_frontend::Main;
+use bark_frontend::frontend;
 
 fn main() {
-    Main();
+    println!("Launching frontend...");
+    frontend::run();
 }

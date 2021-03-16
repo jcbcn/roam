@@ -11,6 +11,5 @@ bark-frontend = { path = "bark-frontend" }
 
 [workspace]
 members = [
-    "bark-core",
     "bark-frontend"
 ]
