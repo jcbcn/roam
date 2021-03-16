@@ -5,7 +5,7 @@ use glutin::event_loop::{ControlFlow, EventLoop};
 use glutin::window::WindowBuilder;
 use glutin::ContextBuilder;
 
-fn run() {
+pub fn run() {
     let el = EventLoop::new();
     let wb = WindowBuilder::new().with_title("A fantastic window!");
 
