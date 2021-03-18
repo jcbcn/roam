@@ -48,7 +48,7 @@ pub fn start() -> Res<()> {
     }
 
     let events = glutin::event_loop::EventLoop::new();
-    let title = "glyph_brush opengl example - scroll to size, type to modify";
+    let title = "bark";
 
     let window_ctx = glutin::ContextBuilder::new()
         .with_gl_profile(GlProfile::Core)
@@ -153,31 +153,13 @@ pub fn start() -> Res<()> {
 
                 glyph_brush.queue(
                     Section::default()
-                        .add_text(base_text.with_color([0.9, 0.3, 0.3, 1.0]))
-                        .with_bounds((width / 3.15, height)),
-                );
-
-                glyph_brush.queue(
-                    Section::default()
-                        .add_text(base_text.with_color([0.3, 0.9, 0.3, 1.0]))
-                        .with_screen_position((width / 2.0, height / 2.0))
-                        .with_bounds((width / 3.15, height))
+                        .add_text(base_text.with_color([0.5, 1.0, 1.0, 1.0]))
+                        .with_screen_position((0.0, 0.0))
+                        .with_bounds((width, height))
                         .with_layout(
                             Layout::default()
-                                .h_align(HorizontalAlign::Center)
-                                .v_align(VerticalAlign::Center),
-                        ),
-                );
-
-                glyph_brush.queue(
-                    Section::default()
-                        .add_text(base_text.with_color([0.3, 0.3, 0.9, 1.0]))
-                        .with_screen_position((width, height))
-                        .with_bounds((width / 3.15, height))
-                        .with_layout(
-                            Layout::default()
-                                .h_align(HorizontalAlign::Right)
-                                .v_align(VerticalAlign::Bottom),
+                                .h_align(HorizontalAlign::Left)
+                                .v_align(VerticalAlign::Top),
                         ),
                 );
 
@@ -240,7 +222,7 @@ pub fn start() -> Res<()> {
                 if let Some(rate) = loop_helper.report_rate() {
                     window_ctx
                         .window()
-                        .set_title(&format!("{} {:.0} FPS", title, rate));
+                        .set_title(&format!("{} - {:.0} FPS", title, rate));
                 }
                 loop_helper.loop_sleep();
                 loop_helper.loop_start();

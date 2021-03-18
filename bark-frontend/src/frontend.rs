@@ -1,5 +1,5 @@
 use crate::glyph;
 
 pub fn run() {
-    glyph::start();
+    let _ = glyph::start();
 }
