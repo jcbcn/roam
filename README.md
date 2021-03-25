@@ -2,12 +2,12 @@
 
 [![Rust](https://github.com/jcbcn/bark/actions/workflows/rust.yml/badge.svg?branch=main)](https://github.com/jcbcn/bark/actions/workflows/rust.yml)
 
-Bark is an OpenGL based markdown editor that is lean, fast and privacy focused! 
+Bark is a Zettelkasten note taking tool that uses markdown files and your local filesystem. 
 
-## Ideas
+## Features
 
 - Daily notes
-- Templates e.g Morning pages
+- Templates
 - Tags
 - Linked references
 - Unlinked references
