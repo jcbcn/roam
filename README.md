@@ -2,7 +2,7 @@
 
 [![Rust](https://github.com/jcbcn/bark/actions/workflows/rust.yml/badge.svg?branch=main)](https://github.com/jcbcn/bark/actions/workflows/rust.yml)
 
-Bark is a Zettelkasten note taking tool that uses markdown files and your local filesystem. 
+Bark is a Zettelkasten note taking tool that uses markdown and your local filesystem. 
 
 ## Features
 
