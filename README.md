@@ -11,6 +11,7 @@ Bark is a Zettelkasten note taking tool that uses markdown and your local filesy
 - Tags
 - Linked references
 - Unlinked references
+- Extension engine
 
 ## Architecture
 
