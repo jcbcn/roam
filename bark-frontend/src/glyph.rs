@@ -20,7 +20,7 @@ use std::{
     io::{self, Write},
     mem, ptr, str,
 };
-use chrono::{DateTime, Utc};
+use chrono::{Utc};
 
 pub type Res<T> = Result<T, Box<dyn std::error::Error>>;
 /// `[left_top * 3, right_bottom * 2, tex_left_top * 2, tex_right_bottom * 2, color * 4]`

@@ -1,0 +1,28 @@
+name: Release
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: | 
+        sudo apt update
+        sudo apt-get install libasound2-dev libudev-dev pkg-config
+    - run: rustup target add x86_64-pc-windows-gnu
+    - run: rustup toolchain install stable-x86_64-pc-windows-gnu
+    - run: sudo apt-get install gcc-mingw-w64
+    - name: Build
+      run: cargo build --target x86_64-pc-windows-gnu --release --verbose
+    - name: Run tests
+      run: cargo test --verbose
+    - name: Hash
+      run: sha512sum bark.exe | cut -d " " -f 1 > checksum
+      working-directory: /home/runner/work/bark/bark/target/x86_64-pc-windows-gnu/release/
+    - name: Create Release
+      run: gh release create ${GITHUB_SHA::6} bark.exe checksum
+      working-directory: /home/runner/work/bark/bark/target/x86_64-pc-windows-gnu/release/
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
