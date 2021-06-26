@@ -7,6 +7,7 @@
 //! * Type to modify text.
 //! * Resize window.
 
+use std::io::BufReader;
 use gl::types::*;
 use glutin::{
     event::{ElementState, Event, KeyboardInput, MouseScrollDelta, VirtualKeyCode, WindowEvent},
@@ -34,7 +35,7 @@ macro_rules! gl_assert_ok {
 }
 
 #[allow(unused)] // it _is_ used
-pub fn start() -> Res<()> {
+pub fn new(lines: std::io::Lines<BufReader<std::fs::File>>) -> Res<()> {
     env_logger::init();
 
     if cfg!(target_os = "linux") {
@@ -49,7 +50,7 @@ pub fn start() -> Res<()> {
     }
 
     let events = glutin::event_loop::EventLoop::new();
-    let title = "bark";
+    let title = "OneMind - Bark - Untitled.md";
 
     let window_ctx = glutin::ContextBuilder::new()
         .with_gl_profile(GlProfile::Core)
@@ -81,11 +82,16 @@ pub fn start() -> Res<()> {
 
     let mut text_pipe = GlTextPipe::new(dimensions)?;
 
-    //let mut text: String = include_str!("text/lipsum.txt").into();
-    let mut text: String = Utc::now().to_rfc2822();
+    let mut text: String = String::new();
+
+    for line in lines {
+        text.push_str(&line.unwrap());
+        text.push_str("\n");
+    }
+
     let mut font_size: f32 = 36.0;
 
-    let mut loop_helper = spin_sleep::LoopHelper::builder().build_with_target_rate(250.0);
+    let mut loop_helper = spin_sleep::LoopHelper::builder().build_with_target_rate(120.0);
     let mut vertex_count = 0;
     let mut vertex_max = vertex_count;
 
@@ -224,7 +230,7 @@ pub fn start() -> Res<()> {
                 if let Some(rate) = loop_helper.report_rate() {
                     window_ctx
                         .window()
-                        .set_title(&format!("{} - {:.0} FPS", title, rate));
+                        .set_title(&format!("{} ({:.0} FPS)", title, rate));
                 }
                 loop_helper.loop_sleep();
                 loop_helper.loop_start();

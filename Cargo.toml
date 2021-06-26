@@ -8,8 +8,10 @@ edition = "2018"
 
 [dependencies]
 bark-frontend = { path = "bark-frontend" }
+bark-core = { path = "bark-core" }
 
 [workspace]
 members = [
-    "bark-frontend"
+    "bark-frontend",
+    "bark-core"
 ]
