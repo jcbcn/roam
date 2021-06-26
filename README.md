@@ -1,6 +1,6 @@
 # Bark
 
-[![Rust](https://github.com/jcbcn/bark/actions/workflows/rust.yml/badge.svg?branch=main)](https://github.com/jcbcn/bark/actions/workflows/rust.yml)
+[![Build](https://github.com/jcbcn/bark/actions/workflows/build.yml/badge.svg)](https://github.com/jcbcn/bark/actions/workflows/build.yml)
 
 Bark is a Zettelkasten note taking tool that uses markdown and your local filesystem. 
 
